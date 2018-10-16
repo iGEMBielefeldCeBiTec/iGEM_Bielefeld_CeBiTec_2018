@@ -29,7 +29,8 @@ from operator import itemgetter
 from graphics import Ui_MainWindow
 import re
 from sets import Set
-
+from Bio import pairwise2
+from Bio.pairwise2 import format_alignment
 
 
 def revcomp( seq ):
@@ -759,6 +760,12 @@ class SiRNADesigner(QtGui.QMainWindow):
 				self.ui.output_text1_1.insertPlainText(output1)
 				self.ui.output_text1_2.insertPlainText(output2)
 				self.ui.output_text1_3.insertPlainText(output3)
+				
+				if final_list == []:
+						
+					w = QtGui.QWidget()
+					QtGui.QMessageBox.about(w, "About", "No siRNAs could be found for the sequence entered.")
+					w.show()
 			
 			elif len(geneseq) <250 and len(geneseq) > 30:
 			
@@ -785,6 +792,12 @@ class SiRNADesigner(QtGui.QMainWindow):
 				self.ui.output_text1_1.insertPlainText(output1)
 				self.ui.output_text1_2.insertPlainText(output2)
 				self.ui.output_text1_3.insertPlainText(output3)
+				
+				if final_list == []:
+						
+					w = QtGui.QWidget()
+					QtGui.QMessageBox.about(w, "About", "No siRNAs could be found for the sequence entered.")
+					w.show()
 			
 			else:
 			
@@ -817,6 +830,12 @@ class SiRNADesigner(QtGui.QMainWindow):
 			self.ui.output_text1_1.insertPlainText(output1)
 			self.ui.output_text1_2.insertPlainText(output2)
 			self.ui.output_text1_3.insertPlainText(output3)
+			
+			if final_list == []:
+						
+				w = QtGui.QWidget()
+				QtGui.QMessageBox.about(w, "About", "No siRNAs could be found for the sequence entered.")
+				w.show()
 		
 		elif len(geneseq) <250 and len(geneseq) > 30 and Set(geneseq).issubset(allowed_chars):
 			
@@ -843,6 +862,12 @@ class SiRNADesigner(QtGui.QMainWindow):
 			self.ui.output_text1_1.insertPlainText(output1)
 			self.ui.output_text1_2.insertPlainText(output2)
 			self.ui.output_text1_3.insertPlainText(output3)
+			
+			if final_list == []:
+						
+				w = QtGui.QWidget()
+				QtGui.QMessageBox.about(w, "About", "No siRNAs could be found for the sequence entered.")
+				w.show()
 		
 		else:
 			
@@ -909,6 +934,12 @@ class SiRNADesigner(QtGui.QMainWindow):
 					self.ui.output_text2_1.insertPlainText(output1)
 					self.ui.output_text2_2.insertPlainText(output2)
 					self.ui.output_text2_3.insertPlainText(output3)
+					
+					if final_list == []:
+						
+						w = QtGui.QWidget()
+						QtGui.QMessageBox.about(w, "About", "No siRNAs could be found for the sequence entered.")
+						w.show()
 				
 				elif len(geneseq) <250 and len(geneseq) > 30:
 				
@@ -935,6 +966,12 @@ class SiRNADesigner(QtGui.QMainWindow):
 					self.ui.output_text2_1.insertPlainText(output1)
 					self.ui.output_text2_2.insertPlainText(output2)
 					self.ui.output_text2_3.insertPlainText(output3)
+					
+					if final_list == []:
+						
+						w = QtGui.QWidget()
+						QtGui.QMessageBox.about(w, "About", "No siRNAs could be found for the sequence entered.")
+						w.show()
 				
 				else:
 				
@@ -968,6 +1005,12 @@ class SiRNADesigner(QtGui.QMainWindow):
 				self.ui.output_text2_2.insertPlainText(output2)
 				self.ui.output_text2_3.insertPlainText(output3)
 				
+				if final_list == []:
+						
+					w = QtGui.QWidget()
+					QtGui.QMessageBox.about(w, "About", "No siRNAs could be found for the sequence entered.")
+					w.show()
+				
 			elif len(geneseq) <250 and len(geneseq) > 30:
 
 				rational_candidates = get_rational_siRNA_short_sequence(geneseq)
@@ -993,6 +1036,12 @@ class SiRNADesigner(QtGui.QMainWindow):
 				self.ui.output_text2_1.insertPlainText(output1)
 				self.ui.output_text2_2.insertPlainText(output2)
 				self.ui.output_text2_3.insertPlainText(output3)
+				
+				if final_list == []:
+						
+					w = QtGui.QWidget()
+					QtGui.QMessageBox.about(w, "About", "No siRNAs could be found for the sequence entered.")
+					w.show()
 				
 			else:
 
@@ -1036,6 +1085,12 @@ class SiRNADesigner(QtGui.QMainWindow):
 					self.ui.output_text2_1.insertPlainText(output1)
 					self.ui.output_text2_2.insertPlainText(output2)
 					self.ui.output_text2_3.insertPlainText(output3)
+					
+					if rbs_list == []:
+						
+						w = QtGui.QWidget()
+						QtGui.QMessageBox.about(w, "About", "No siRNAs could be found for the sequence entered.")
+						w.show()
 			
 
 			
@@ -1104,6 +1159,12 @@ class SiRNADesigner(QtGui.QMainWindow):
 				self.ui.output_text2_1.insertPlainText(output1)
 				self.ui.output_text2_2.insertPlainText(output2)
 				self.ui.output_text2_3.insertPlainText(output3)
+				
+				if rbs_list == [] and gene_list == []:
+						
+						w = QtGui.QWidget()
+						QtGui.QMessageBox.about(w, "About", "No siRNAs could be found for the sequence entered.")
+						w.show()
 				
 				
 			elif len(rbs) < 50 and len(rbs) >=30 and Set(rbs).issubset(allowed_chars):
@@ -1172,6 +1233,12 @@ class SiRNADesigner(QtGui.QMainWindow):
 				self.ui.output_text2_1.insertPlainText(output1)
 				self.ui.output_text2_2.insertPlainText(output2)
 				self.ui.output_text2_3.insertPlainText(output3)
+				
+				if rbs_list == [] and gene_list == []:
+						
+						w = QtGui.QWidget()
+						QtGui.QMessageBox.about(w, "About", "No siRNAs could be found for the sequence entered.")
+						w.show()
 			
 			elif len(rbs) > 50:
 				w = QtGui.QWidget()
@@ -1372,98 +1439,314 @@ class SiRNADesigner(QtGui.QMainWindow):
 	
 	def save_result_RNAi(self):
 		
-		output = ""
 		
-		text1 = str(self.ui.output_text1_1.toPlainText())
-		text2 = str(self.ui.output_text1_2.toPlainText())
-		text3 = str(self.ui.output_text1_3.toPlainText())
+		if QtGui.QAbstractButton.isChecked(self.ui.scaffold_1):
 		
-		if text1 == "" or text2 == "" or text3 == "":
-			w = QtGui.QWidget()
-			QtGui.QMessageBox.about(w, "About", "No results available.")
-			w.show()
+			output = ""
+			
+			text1 = str(self.ui.output_text1_1.toPlainText())
+			text2 = str(self.ui.output_text1_2.toPlainText())
+			text3 = str(self.ui.output_text1_3.toPlainText())
+			
+			if text1 == "" or text2 == "" or text3 == "":
+				w = QtGui.QWidget()
+				QtGui.QMessageBox.about(w, "About", "No results available.")
+				w.show()
+			
+			else:
+				sense = text1.strip().split('\n')
+				antisense = text2.strip().split('\n')
+				probability = text3.strip().split('\n')
+
+				
+				i = 0
+				
+				while i < len(sense):
+					
+					output = output + ">siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
+					output = output + sense[i] + "TTTCTGTTGGGCCATTGCATTGCCACTGATTTTCCAACATATAAAAAGACAAGCCCGAACAGTCGTCCGGGCTTTTTTTCTCGAG"+"\n"
+					output = output + ">siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
+					output = output + "CTCGAGAAAAAAAGCCCGGACGACTGTTCGGGCTTGTCTTTTTATATGTTGGAAAATCAGTGGCAATGCAATGGCCCAACAGAAA" + antisense[i] + "\n"
+					
+					i+=1
+				
+				name = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
+				file = open(name, 'w')
+			
+				file.write(output)
+				file.close()
 		
 		else:
-			sense = text1.strip().split('\n')
-			antisense = text2.strip().split('\n')
-			probability = text3.strip().split('\n')
-
 			
-			i = 0
-			
-			while i < len(sense):
-				
-				output = output + ">siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
-				output = output + sense[i] + "\n"
-				output = output + ">siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
-				output = output + antisense[i] + "\n"
-				
-				i+=1
-			
-			name = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
-			file = open(name, 'w')
+			output = ""
 		
-			file.write(output)
-			file.close()
+			text1 = str(self.ui.output_text1_1.toPlainText())
+			text2 = str(self.ui.output_text1_2.toPlainText())
+			text3 = str(self.ui.output_text1_3.toPlainText())
+			
+			if text1 == "" or text2 == "" or text3 == "":
+				w = QtGui.QWidget()
+				QtGui.QMessageBox.about(w, "About", "No results available.")
+				w.show()
+			
+			else:
+				sense = text1.strip().split('\n')
+				antisense = text2.strip().split('\n')
+				probability = text3.strip().split('\n')
+
+				
+				i = 0
+				
+				while i < len(sense):
+					
+					output = output + ">siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
+					output = output + sense[i] + "\n"
+					output = output + ">siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
+					output = output + antisense[i] + "\n"
+					
+					i+=1
+				
+				name = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
+				file = open(name, 'w')
+			
+				file.write(output)
+				file.close()
 		
 		
 	def save_result_siRNA(self):
 		
-		output = ""
+		if QtGui.QAbstractButton.isChecked(self.ui.scaffold_2) and QtGui.QAbstractButton.isChecked(self.ui.scaffold_3) and not(QtGui.QAbstractButton.isChecked(self.ui.checkBox2)):
+			
+			output = ""
+			
+			text1 = str(self.ui.output_text2_1.toPlainText())
+			text2 = str(self.ui.output_text2_2.toPlainText())
+			text3 = str(self.ui.output_text2_3.toPlainText())
+			
+			if text1 == "" or text2 == "" or text3 == "":
+				w = QtGui.QWidget()
+				QtGui.QMessageBox.about(w, "About", "No results available.")
+				w.show()
+			
+			else:
+				sense = text1.strip().split('\n')
+				antisense = text2.strip().split('\n')
+				probability = text3.strip().split('\n')
+				
+				
+				i = 0
+				
+				section = ""
+				
+				while i < len(sense):
+					
+					if "Gene" in sense[i]:
+						section = "gene"
+						
+						i+=1
+					
+					elif "RBS" in sense[i]:
+						section = "rbs"
+						
+						i+=1
+					
+					elif section == "gene":
+						
+						output = output + ">gene_siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
+						output = output + "GCCAGGGGTGCTCGGCATAAGCCGAAGATATCGGTAGAGTTAATATTGAGCAGATCCCCCGGTGAAGGATTTAACCGTGTTATCTCGTTGGAGATATTCATGGCGTATTTTGGATGA" + sense[i] + "TTTCTGTTGGGCCATTGCATTGCCACTGATTTTCCAACATATAAAAAGACAAGCCCGAACAGTCGTCCGGGCTTTTTTTCTCGAG" + "\n"
+						output = output + ">gene_siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
+						output = output + "CTCGAGAAAAAAAGCCCGGACGACTGTTCGGGCTTGTCTTTTTATATGTTGGAAAATCAGTGGCAATGCAATGGCCCAACAGAAA" + antisense[i] + "TCATCCAAAATACGCCATGAATATCTCCAACGAGATAACACGGTTAAATCCTTCACCGGGGGATCTGCTCAATATTAACTCTACCGATATCTTCGGCTTATGCCGAGCACCCCTGGC" + "\n"
+					
+						i+=1
+						
+					elif section == "rbs":
+						output = output + ">rbs_siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
+						output = output + sense[i] + "\n"
+						output = output + ">rbs_siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
+						output = output + antisense[i] + "\n"
+						
+						i+=1
+				
+				name = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
+				file = open(name, 'w')
+			
+				file.write(output)
+				file.close()
 		
-		text1 = str(self.ui.output_text2_1.toPlainText())
-		text2 = str(self.ui.output_text2_2.toPlainText())
-		text3 = str(self.ui.output_text2_3.toPlainText())
+		elif QtGui.QAbstractButton.isChecked(self.ui.scaffold_2) and not(QtGui.QAbstractButton.isChecked(self.ui.checkBox2)) :
 		
-		if text1 == "" or text2 == "" or text3 == "":
-			w = QtGui.QWidget()
-			QtGui.QMessageBox.about(w, "About", "No results available.")
-			w.show()
+			output = ""
+			
+			text1 = str(self.ui.output_text2_1.toPlainText())
+			text2 = str(self.ui.output_text2_2.toPlainText())
+			text3 = str(self.ui.output_text2_3.toPlainText())
+			
+			if text1 == "" or text2 == "" or text3 == "":
+				w = QtGui.QWidget()
+				QtGui.QMessageBox.about(w, "About", "No results available.")
+				w.show()
+			
+			else:
+				sense = text1.strip().split('\n')
+				antisense = text2.strip().split('\n')
+				probability = text3.strip().split('\n')
+				
+				
+				i = 0
+				
+				section = ""
+				
+				while i < len(sense):
+					
+					if "Gene" in sense[i]:
+						section = "gene"
+						
+						i+=1
+					
+					elif "RBS" in sense[i]:
+						section = "rbs"
+						
+						i+=1
+					
+					elif section == "gene":
+						
+						output = output + ">gene_siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
+						output = output + "GCCAGGGGTGCTCGGCATAAGCCGAAGATATCGGTAGAGTTAATATTGAGCAGATCCCCCGGTGAAGGATTTAACCGTGTTATCTCGTTGGAGATATTCATGGCGTATTTTGGATGA" + sense[i] + "\n"
+						output = output + ">gene_siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
+						output = output + antisense[i] + "TCATCCAAAATACGCCATGAATATCTCCAACGAGATAACACGGTTAAATCCTTCACCGGGGGATCTGCTCAATATTAACTCTACCGATATCTTCGGCTTATGCCGAGCACCCCTGGC" + "\n"
+					
+						i+=1
+						
+					elif section == "rbs":
+						output = output + ">rbs_siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
+						output = output + sense[i] + "\n"
+						output = output + ">rbs_siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
+						output = output + antisense[i] + "\n"
+						
+						i+=1
+				
+				name = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
+				file = open(name, 'w')
+			
+				file.write(output)
+				file.close()
+				
+		
+		elif QtGui.QAbstractButton.isChecked(self.ui.scaffold_3) and not(QtGui.QAbstractButton.isChecked(self.ui.checkBox2)) :
+		
+			output = ""
+			
+			text1 = str(self.ui.output_text2_1.toPlainText())
+			text2 = str(self.ui.output_text2_2.toPlainText())
+			text3 = str(self.ui.output_text2_3.toPlainText())
+			
+			if text1 == "" or text2 == "" or text3 == "":
+				w = QtGui.QWidget()
+				QtGui.QMessageBox.about(w, "About", "No results available.")
+				w.show()
+			
+			else:
+				sense = text1.strip().split('\n')
+				antisense = text2.strip().split('\n')
+				probability = text3.strip().split('\n')
+				
+				
+				i = 0
+				
+				section = ""
+				
+				while i < len(sense):
+					
+					if "Gene" in sense[i]:
+						section = "gene"
+						
+						i+=1
+					
+					elif "RBS" in sense[i]:
+						section = "rbs"
+						
+						i+=1
+					
+					elif section == "gene":
+						
+						output = output + ">gene_siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
+						output = output + sense[i] + "\n"
+						output = output + ">gene_siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
+						output = output + antisense[i] + "\n"
+					
+						i+=1
+						
+					elif section == "rbs":
+						output = output + ">rbs_siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
+						output = output + sense[i] + "TTTCTGTTGGGCCATTGCATTGCCACTGATTTTCCAACATATAAAAAGACAAGCCCGAACAGTCGTCCGGGCTTTTTTTCTCGAG" + "\n"
+						output = output + ">rbs_siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
+						output = output + "CTCGAGAAAAAAAGCCCGGACGACTGTTCGGGCTTGTCTTTTTATATGTTGGAAAATCAGTGGCAATGCAATGGCCCAACAGAAA" + antisense[i] + "\n"
+						
+						i+=1
+				
+				name = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
+				file = open(name, 'w')
+			
+				file.write(output)
+				file.close()
 		
 		else:
-			sense = text1.strip().split('\n')
-			antisense = text2.strip().split('\n')
-			probability = text3.strip().split('\n')
 			
+			output = ""
 			
-			i = 0
+			text1 = str(self.ui.output_text2_1.toPlainText())
+			text2 = str(self.ui.output_text2_2.toPlainText())
+			text3 = str(self.ui.output_text2_3.toPlainText())
 			
-			section = ""
+			if text1 == "" or text2 == "" or text3 == "":
+				w = QtGui.QWidget()
+				QtGui.QMessageBox.about(w, "About", "No results available.")
+				w.show()
 			
-			while i < len(sense):
+			else:
+				sense = text1.strip().split('\n')
+				antisense = text2.strip().split('\n')
+				probability = text3.strip().split('\n')
 				
-				if "Gene" in sense[i]:
-					section = "gene"
-					
-					i+=1
 				
-				elif "RBS" in sense[i]:
-					section = "rbs"
-					
-					i+=1
+				i = 0
 				
-				elif section == "gene":
-					
-					output = output + ">gene_siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
-					output = output + sense[i] + "\n"
-					output = output + ">gene_siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
-					output = output + antisense[i] + "\n"
+				section = ""
 				
-					i+=1
+				while i < len(sense):
 					
-				elif section == "rbs":
-					output = output + ">rbs_siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
-					output = output + sense[i] + "\n"
-					output = output + ">rbs_siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
-					output = output + antisense[i] + "\n"
+					if "Gene" in sense[i]:
+						section = "gene"
+						
+						i+=1
 					
-					i+=1
+					elif "RBS" in sense[i]:
+						section = "rbs"
+						
+						i+=1
+					
+					elif section == "gene":
+						
+						output = output + ">gene_siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
+						output = output + sense[i] + "\n"
+						output = output + ">gene_siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
+						output = output + antisense[i] + "\n"
+					
+						i+=1
+						
+					elif section == "rbs":
+						output = output + ">rbs_siRNA" + str(i+1) + "_1 probability: " + probability[i] + "\n"
+						output = output + sense[i] + "\n"
+						output = output + ">rbs_siRNA" + str(i+1) + "_2 probability: " + probability[i] + "\n"
+						output = output + antisense[i] + "\n"
+						
+						i+=1
+				
+				name = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
+				file = open(name, 'w')
 			
-			name = QtGui.QFileDialog.getSaveFileName(self, 'Save File')
-			file = open(name, 'w')
-		
-			file.write(output)
-			file.close()
+				file.write(output)
+				file.close()
 	
 	
 	def save_result(self):

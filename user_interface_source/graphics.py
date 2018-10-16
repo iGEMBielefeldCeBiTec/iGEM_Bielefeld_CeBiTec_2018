@@ -31,6 +31,9 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(_fromUtf8("siRCon_Logo_1.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setAutoFillBackground(False)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
@@ -68,14 +71,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2 = QtGui.QHBoxLayout()
         self.horizontalLayout_2.setContentsMargins(10, 20, 10, 20)
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
-        self.gridLayout_3 = QtGui.QGridLayout()
-        self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
-        self.promotor1 = QtGui.QComboBox(self.tab)
-        self.promotor1.setMaximumSize(QtCore.QSize(175, 27))
-        self.promotor1.setObjectName(_fromUtf8("promotor1"))
-        self.promotor1.addItem(_fromUtf8(""))
-        self.gridLayout_3.addWidget(self.promotor1, 2, 0, 1, 1)
-        self.horizontalLayout_2.addLayout(self.gridLayout_3)
         self.gridLayout_4 = QtGui.QGridLayout()
         self.gridLayout_4.setObjectName(_fromUtf8("gridLayout_4"))
         self.checkBox = QtGui.QCheckBox(self.tab)
@@ -165,13 +160,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addLayout(self.gridLayout_7)
         self.gridLayout_9 = QtGui.QGridLayout()
         self.gridLayout_9.setObjectName(_fromUtf8("gridLayout_9"))
-        self.gridLayout_8 = QtGui.QGridLayout()
-        self.gridLayout_8.setObjectName(_fromUtf8("gridLayout_8"))
-        self.label_10 = QtGui.QLabel(self.tab)
-        self.label_10.setText(_fromUtf8(""))
-        self.label_10.setObjectName(_fromUtf8("label_10"))
-        self.gridLayout_8.addWidget(self.label_10, 0, 0, 1, 1)
-        self.gridLayout_9.addLayout(self.gridLayout_8, 0, 0, 1, 1)
+        self.scaffold_1 = QtGui.QCheckBox(self.tab)
+        self.scaffold_1.setObjectName(_fromUtf8("scaffold_1"))
+        self.gridLayout_9.addWidget(self.scaffold_1, 0, 0, 1, 1)
         self.horizontalLayout_3.addLayout(self.gridLayout_9)
         self.gridLayout_10 = QtGui.QGridLayout()
         self.gridLayout_10.setObjectName(_fromUtf8("gridLayout_10"))
@@ -209,18 +200,10 @@ class Ui_MainWindow(object):
         self.gridLayout_11 = QtGui.QGridLayout()
         self.gridLayout_11.setContentsMargins(-1, -1, 1, -1)
         self.gridLayout_11.setObjectName(_fromUtf8("gridLayout_11"))
-        self.promotor2 = QtGui.QComboBox(self.tab_2)
-        self.promotor2.setMaximumSize(QtCore.QSize(175, 27))
-        self.promotor2.setObjectName(_fromUtf8("promotor2"))
-        self.promotor2.addItem(_fromUtf8(""))
-        self.gridLayout_11.addWidget(self.promotor2, 0, 0, 1, 1)
-        self.horizontalLayout_4.addLayout(self.gridLayout_11)
-        self.gridLayout_14 = QtGui.QGridLayout()
-        self.gridLayout_14.setObjectName(_fromUtf8("gridLayout_14"))
         self.checkBox2 = QtGui.QCheckBox(self.tab_2)
         self.checkBox2.setObjectName(_fromUtf8("checkBox2"))
-        self.gridLayout_14.addWidget(self.checkBox2, 1, 0, 1, 1)
-        self.horizontalLayout_4.addLayout(self.gridLayout_14)
+        self.gridLayout_11.addWidget(self.checkBox2, 0, 0, 1, 1)
+        self.horizontalLayout_4.addLayout(self.gridLayout_11)
         self.gridLayout_15 = QtGui.QGridLayout()
         self.gridLayout_15.setObjectName(_fromUtf8("gridLayout_15"))
         self.label_4 = QtGui.QLabel(self.tab_2)
@@ -294,20 +277,15 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setObjectName(_fromUtf8("horizontalLayout_5"))
         self.gridLayout_17 = QtGui.QGridLayout()
         self.gridLayout_17.setObjectName(_fromUtf8("gridLayout_17"))
-        self.label_6 = QtGui.QLabel(self.tab_2)
-        self.label_6.setText(_fromUtf8(""))
-        self.label_6.setObjectName(_fromUtf8("label_6"))
-        self.gridLayout_17.addWidget(self.label_6, 0, 0, 1, 1)
+        self.scaffold_3 = QtGui.QCheckBox(self.tab_2)
+        self.scaffold_3.setObjectName(_fromUtf8("scaffold_3"))
+        self.gridLayout_17.addWidget(self.scaffold_3, 0, 0, 1, 1)
         self.horizontalLayout_5.addLayout(self.gridLayout_17)
         self.gridLayout_18 = QtGui.QGridLayout()
         self.gridLayout_18.setObjectName(_fromUtf8("gridLayout_18"))
-        self.gridLayout_19 = QtGui.QGridLayout()
-        self.gridLayout_19.setObjectName(_fromUtf8("gridLayout_19"))
-        self.label_7 = QtGui.QLabel(self.tab_2)
-        self.label_7.setText(_fromUtf8(""))
-        self.label_7.setObjectName(_fromUtf8("label_7"))
-        self.gridLayout_19.addWidget(self.label_7, 0, 0, 1, 1)
-        self.gridLayout_18.addLayout(self.gridLayout_19, 0, 0, 1, 1)
+        self.scaffold_2 = QtGui.QCheckBox(self.tab_2)
+        self.scaffold_2.setObjectName(_fromUtf8("scaffold_2"))
+        self.gridLayout_18.addWidget(self.scaffold_2, 0, 0, 1, 1)
         self.horizontalLayout_5.addLayout(self.gridLayout_18)
         self.gridLayout_20 = QtGui.QGridLayout()
         self.gridLayout_20.setObjectName(_fromUtf8("gridLayout_20"))
@@ -456,22 +434,22 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "siRNA Designer", None))
+        MainWindow.setWindowTitle(_translate("MainWindow", "siRCon", None))
         self.label.setText(_translate("MainWindow", "Gene sequence 5\' -> 3\':", None))
         self.geneSeq1.setProperty("placeholderText", _translate("MainWindow", "Enter gene sequence", None))
-        self.promotor1.setItemText(0, _translate("MainWindow", "Choose Promotor", None))
-        self.checkBox.setText(_translate("MainWindow", "Bielefeld Method", None))
+        self.checkBox.setText(_translate("MainWindow", "Tace vector system", None))
         self.getRNA1.setText(_translate("MainWindow", "Get siRNA", None))
         self.label_3.setText(_translate("MainWindow", "Results:", None))
         self.label_15.setText(_translate("MainWindow", "Probability", None))
         self.label_2.setText(_translate("MainWindow", "Sense siRNA 5\' -> 3\'", None))
         self.label_11.setText(_translate("MainWindow", "Antisense siRNA 5\' -> 3\'", None))
+        self.scaffold_1.setText(_translate("MainWindow", "Save with MicC scaffold", None))
         self.save_button1.setText(_translate("MainWindow", "Save results", None))
         self.textBrowser_2.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Tipp</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Tipp (Only when not using the Tace vector system)</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:600;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">In order for the siRNA to bind more strongly to the target sequence, an Hfq binding sequence (here the MicC Hfq sequence) should be added at the 3\' end:</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
@@ -480,29 +458,39 @@ class Ui_MainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">CTCGAGAAAAAAAGCCCGGACGACTGTTCGGGCTTGTCTTTTTATATGTTGGAAAATCAGTGGCAATGCAATGGCCCAACAGAAA + antisense siRNA</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p></body></html>", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "RNAi", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "siRNA for RNAi", None))
         self.label_12.setToolTip(_translate("MainWindow", "Mark nucleotides with the cursor", None))
         self.label_12.setText(_translate("MainWindow", "Gene sequence 5\' -> 3\':", None))
         self.geneSeq2.setProperty("placeholderText", _translate("MainWindow", "Enter gene sequence", None))
-        self.promotor2.setItemText(0, _translate("MainWindow", "Choose Promotor", None))
-        self.checkBox2.setText(_translate("MainWindow", "Bielefeld method", None))
+        self.checkBox2.setText(_translate("MainWindow", "Tace vector system", None))
         self.getRNA2.setText(_translate("MainWindow", "Get siRNA", None))
         self.label_5.setText(_translate("MainWindow", "Results:", None))
         self.label_17.setText(_translate("MainWindow", "Sense siRNA 5\' -> 3\'", None))
         self.label_18.setText(_translate("MainWindow", "Antisense siRNA 5\' -> 3\'", None))
         self.label_19.setText(_translate("MainWindow", "Probability", None))
+        self.scaffold_3.setText(_translate("MainWindow", "Save with MicC scaffold", None))
+        self.scaffold_2.setText(_translate("MainWindow", "Save with OmpA scaffold", None))
         self.save_button2.setText(_translate("MainWindow", "Save results", None))
         self.textBrowser_3.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Tipp</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Tipp (Only when not using the Tace vector system)</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:600;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">To increase the stability of the siRNA, the OmpA 5\' UTR can be added to the 5\' end of the siRNA:</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">GCCAGGGGTGCTCGGCATAAGCCGAAGATATCGGTAGAGTTAATATTGAGCAGATCCCCCGGTGAAGGATTTAACCGTGTTATCTCGTTGGAGATATTCATGGCGTATTTTGGATGA + sense siRNA </span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">antisense siRNA + TCATCCAAAATACGCCATGAATATCTCCAACGAGATAACACGGTTAAATCCTTCACCGGGGGATCTGCTCAATATTAACTCTACCGATATCTTCGGCTTATGCCGAGCACCCCTGGC</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">In order for the siRNA to bind more strongly to the target sequence, an Hfq binding sequence (here the MicC Hfq sequence) should be added at the 3\' end:</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">sense siRNA + TTTCTGTTGGGCCATTGCATTGCCACTGATTTTCCAACATATAAAAAGACAAGCCCGAACAGTCGTCCGGGCTTTTTTTCTCGAG</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">CTCGAGAAAAAAAGCCCGGACGACTGTTCGGGCTTGTCTTTTTATATGTTGGAAAATCAGTGGCAATGCAATGGCCCAACAGAAA + antisense siRNA</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p></body></html>", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "siRNA", None))
         self.label_20.setText(_translate("MainWindow", "Gene sequence 5\' -> 3\':", None))
@@ -512,7 +500,7 @@ class Ui_MainWindow(object):
         self.method.setItemText(0, _translate("MainWindow", "Choose design method", None))
         self.method.setItemText(1, _translate("MainWindow", "RNAi", None))
         self.method.setItemText(2, _translate("MainWindow", "siRNA", None))
-        self.checkBox3.setText(_translate("MainWindow", "Bielefeld Method", None))
+        self.checkBox3.setText(_translate("MainWindow", "Tace vector system", None))
         self.checksiRNA.setText(_translate("MainWindow", "Check siRNA", None))
         self.label_23.setText(_translate("MainWindow", "Results:", None))
         self.save_button3.setText(_translate("MainWindow", "Save results", None))
@@ -523,16 +511,39 @@ class Ui_MainWindow(object):
 "</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600;\">Usage</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
-"<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-size:12pt; font-weight:600;\">siRNA for RNAi Module</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 1</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Insert gene sequence</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 2</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Decide if Tace vector system is used (optionally)</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 3</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Construction of siRNAs</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 4</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> View resulting siRNAs and their corresponding probability</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 5</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> If Tace system is not used, decide whether MicC scaffold should beadded to the siRNA sequences (optionally)</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 6 </span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\">Save results as FASTA file</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'DejaVu Sans, sans-serif\'; font-size:12pt; font-weight:600;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-size:12pt; font-weight:600;\">siRNA Module</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 1</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Insert gene sequence</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 2</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Decide if Tace vector system is used (optionally)</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 3</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Construction of siRNAs</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 4</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> View resulting siRNAs and their corresponding probability</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 5</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> If Tace system is not used, decide whether MicC scaffold should be added to the siRNA sequences (optionally)</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 6</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> If Tace system is not used, decide whether OmpA scaffold should be added to the siRNA sequences (optionally)</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 7</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Save results as FASTA file</span></p>\n"
+"<p align=\"justify\" style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'DejaVu Sans, sans-serif\';\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">ckeck siRNA (Alpha version)</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 1</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Insert gene sequences</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 2</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Insert siRNA sequence</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 3</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Choose the method the siRNA should be used for (siRNA for RNAi or siRNA for silencing)</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 4</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Check if the siRNA is used in our Tace system (optionally)</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 5</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Validation of entered siRNA for given target gene sequences</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 6</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> View Results</span></p>\n"
+"<p align=\"justify\" style=\" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'DejaVu Sans, sans-serif\'; font-weight:600;\">Step 7</span><span style=\" font-family:\'DejaVu Sans, sans-serif\';\"> Save Results (optionally)</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;\"><br /></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt; font-weight:600;\">Copyright and Licensing</span></p>\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:16pt; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\"> siRNA Designer</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\"> siRCon - A siRNA Constructor</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Copyright (C) 2018  Vanessa Krämer</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">    This program is free software: you can redistribute it and/or modify</span></p>\n"

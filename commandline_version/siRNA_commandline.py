@@ -719,6 +719,8 @@ def get_siRNAs_probabilities_only_silincing(siRNA_dic):
 		return all_siRNAs_probs
 
 
+
+
 def get_siRNAs_probabilities_only_silincing_bilefeld(siRNA_dic):
 	
 		omp = "ATGA"
@@ -745,16 +747,18 @@ __usage__ = """
 	python siRNA_commandline.py
 	
 	required:
-		-i <FULL PATH TO INPUT FILE>		gene sequnce
-		-m <siRNA | RNAi>			desifn method
-		-c					check siRNA
+		-i <FULL PATH TO INPUT FILE>					gene sequnce
+		-m <siRNA | RNAi>						construction method
+		-c								check siRNA
 		
 	if the check function is used a second input is required:
-		-si <siRNA sequence | FULL PATH TO INPUT FILE>		siRNA sequence
+		-si <siRNA sequence | FULL PATH TO INPUT FILE>			siRNA sequence
 	
 	optionally:		  
-		-v (Bielefeld Method)			if the Bielefeld vector is used
-		-o <FULL PATH TO OUTPUT FILE>		output file
+		-v (Trace vector system)					cunstructing siRNA for the Trace vectors
+		-o <FULL PATH TO OUTPUT FILE>					output file
+		-MicC								adding MicC scaffold to sequence
+		-OmpA								adding OmpA scaffold to sequence (siRNA only)
 	
 	All input files should be in FASTA format:
 		> header
@@ -783,6 +787,10 @@ if __name__ == '__main__':
 	siRNA = ""
 	
 	check = False
+	
+	scaf_Omp = False
+	
+	scaf_Mic = False
 	
 	if len(arguments) > 1:
 		
@@ -826,9 +834,25 @@ if __name__ == '__main__':
 				
 				i=i+2
 			
+			elif arguments[i] == "-MicC":
+				
+				scaf_Mic = True
+				
+				i=i+1
+			
+			elif arguments[i] == "-OmpA":
+				
+				scaf_Omp = True 
+				
+				i=i+1
+			
 			elif arguments[i] == "help":
 				
-				sys.exit( __usage__ )				
+				sys.exit( __usage__ )	
+			
+			else:			
+				
+				sys.exit(__usage__)
 			
 	else:
 		
@@ -1393,15 +1417,34 @@ if __name__ == '__main__':
 				
 						all_siRNAS = rational_candidates.copy()
 						all_siRNAS.update(uitei_candidates)
-				
+						
 						final_list = get_siRNAs_probabilities_only_silincing(all_siRNAS)
 						final_list.sort()
+						
+						
+							
 						
 						output = "Sense siRNA \t Antisense siRNA \t Probability \n" 
 						
 						for el in reversed(final_list):
 							
-							output = output + el[1] + '\t' + el[2] + '\t' + str(el[0]) + '\n'
+							if scaf_Mic and scaf_Omp:
+								
+								output = output + "GCCAGGGGTGCTCGGCATAAGCCGAAGATATCGGTAGAGTTAATATTGAGCAGATCCCCCGGTGAAGGATTTAACCGTGTTATCTCGTTGGAGATATTCATGGCGTATTTTGGATGA" + el[1] + "TTTCTGTTGGGCCATTGCATTGCCACTGATTTTCCAACATATAAAAAGACAAGCCCGAACAGTCGTCCGGGCTTTTTTTCTCGAG" + '\t' + "CTCGAGAAAAAAAGCCCGGACGACTGTTCGGGCTTGTCTTTTTATATGTTGGAAAATCAGTGGCAATGCAATGGCCCAACAGAAA" + el[2] + "TCATCCAAAATACGCCATGAATATCTCCAACGAGATAACACGGTTAAATCCTTCACCGGGGGATCTGCTCAATATTAACTCTACCGATATCTTCGGCTTATGCCGAGCACCCCTGGC" + '\t' + str(el[0]) + '\n'
+							
+							elif scaf_Mic:
+								
+								output = output + el[1] + "TTTCTGTTGGGCCATTGCATTGCCACTGATTTTCCAACATATAAAAAGACAAGCCCGAACAGTCGTCCGGGCTTTTTTTCTCGAG" + '\t' + "CTCGAGAAAAAAAGCCCGGACGACTGTTCGGGCTTGTCTTTTTATATGTTGGAAAATCAGTGGCAATGCAATGGCCCAACAGAAA" + el[2] + '\t' + str(el[0]) + '\n'
+						
+						
+							elif scaf_Omp:
+								
+								output = output + "GCCAGGGGTGCTCGGCATAAGCCGAAGATATCGGTAGAGTTAATATTGAGCAGATCCCCCGGTGAAGGATTTAACCGTGTTATCTCGTTGGAGATATTCATGGCGTATTTTGGATGA" + el[1] + '\t' + el[2] + "TCATCCAAAATACGCCATGAATATCTCCAACGAGATAACACGGTTAAATCCTTCACCGGGGGATCTGCTCAATATTAACTCTACCGATATCTTCGGCTTATGCCGAGCACCCCTGGC" + '\t' + str(el[0]) + '\n'
+						
+							else:
+							
+								output = output + el[1] + '\t' + el[2] + '\t' + str(el[0]) + '\n'
+								
 						
 						if output_file != "":
 							
@@ -1426,7 +1469,22 @@ if __name__ == '__main__':
 						
 						for el in reversed(final_list):
 							
-							output = output + el[1] + '\t' + el[2] + '\t' + str(el[0]) + '\n'
+							if scaf_Mic and scaf_Omp:
+								
+								output = output + "GCCAGGGGTGCTCGGCATAAGCCGAAGATATCGGTAGAGTTAATATTGAGCAGATCCCCCGGTGAAGGATTTAACCGTGTTATCTCGTTGGAGATATTCATGGCGTATTTTGGATGA" + el[1] + "TTTCTGTTGGGCCATTGCATTGCCACTGATTTTCCAACATATAAAAAGACAAGCCCGAACAGTCGTCCGGGCTTTTTTTCTCGAG" + '\t' + "CTCGAGAAAAAAAGCCCGGACGACTGTTCGGGCTTGTCTTTTTATATGTTGGAAAATCAGTGGCAATGCAATGGCCCAACAGAAA" + el[2] + "TCATCCAAAATACGCCATGAATATCTCCAACGAGATAACACGGTTAAATCCTTCACCGGGGGATCTGCTCAATATTAACTCTACCGATATCTTCGGCTTATGCCGAGCACCCCTGGC" + '\t' + str(el[0]) + '\n'
+							
+							elif scaf_Mic:
+								
+								output = output + el[1] + "TTTCTGTTGGGCCATTGCATTGCCACTGATTTTCCAACATATAAAAAGACAAGCCCGAACAGTCGTCCGGGCTTTTTTTCTCGAG" + '\t' + "CTCGAGAAAAAAAGCCCGGACGACTGTTCGGGCTTGTCTTTTTATATGTTGGAAAATCAGTGGCAATGCAATGGCCCAACAGAAA" + el[2] + '\t' + str(el[0]) + '\n'
+						
+						
+							elif scaf_Omp:
+								
+								output = output + "GCCAGGGGTGCTCGGCATAAGCCGAAGATATCGGTAGAGTTAATATTGAGCAGATCCCCCGGTGAAGGATTTAACCGTGTTATCTCGTTGGAGATATTCATGGCGTATTTTGGATGA" + el[1] + '\t' + el[2] + "TCATCCAAAATACGCCATGAATATCTCCAACGAGATAACACGGTTAAATCCTTCACCGGGGGATCTGCTCAATATTAACTCTACCGATATCTTCGGCTTATGCCGAGCACCCCTGGC" + '\t' + str(el[0]) + '\n'
+						
+							else:
+							
+								output = output + el[1] + '\t' + el[2] + '\t' + str(el[0]) + '\n'
 						
 						if output_file != "":
 							
@@ -1458,7 +1516,12 @@ if __name__ == '__main__':
 						
 						for el in reversed(final_list):
 							
-							output = output + el[1] + '\t' + el[2] + '\t' + str(el[0]) + '\n'
+							if scaf_Mic:
+								
+								output = output + el[1] + "TTTCTGTTGGGCCATTGCATTGCCACTGATTTTCCAACATATAAAAAGACAAGCCCGAACAGTCGTCCGGGCTTTTTTTCTCGAG" + '\t' + "CTCGAGAAAAAAAGCCCGGACGACTGTTCGGGCTTGTCTTTTTATATGTTGGAAAATCAGTGGCAATGCAATGGCCCAACAGAAA" + el[2] + '\t' + str(el[0]) + '\n'
+								
+							else:
+								output = output + el[1] + '\t' + el[2] + '\t' + str(el[0]) + '\n'
 						
 						if output_file != "":
 							
@@ -1483,7 +1546,12 @@ if __name__ == '__main__':
 						
 						for el in reversed(final_list):
 							
-							output = output + el[1] + '\t' + el[2] + '\t' + str(el[0]) + '\n'
+							if scaf_Mic:
+								
+								output = output + el[1] + "TTTCTGTTGGGCCATTGCATTGCCACTGATTTTCCAACATATAAAAAGACAAGCCCGAACAGTCGTCCGGGCTTTTTTTCTCGAG" + '\t' + "CTCGAGAAAAAAAGCCCGGACGACTGTTCGGGCTTGTCTTTTTATATGTTGGAAAATCAGTGGCAATGCAATGGCCCAACAGAAA" + el[2] + '\t' + str(el[0]) + '\n'
+								
+							else:
+								output = output + el[1] + '\t' + el[2] + '\t' + str(el[0]) + '\n'
 						
 						if output_file != "":
 							
